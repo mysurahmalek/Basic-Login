@@ -20,7 +20,7 @@ let dbUsers = [
 ]
 
 // Purpose to sent request to cloud about the detail of login
-function login (username, password) {
+function login (username, password){
     console.log("Someone try to login with", username, password)
     let matched = dbUsers.find(element => {
         element.username == username
@@ -39,7 +39,22 @@ function login (username, password) {
         }
 }
 
+function register(newusername, newpassword, newname, newemail){
+    // TO DO : Check if username exist
+
+    dbUsers.push({
+        username: newusername,
+        password: newpassword,
+        name: newname,
+        email: newemail
+    })
+}
+
 // Call function (give parameter) try to login
 // login("soo", "password")
 // login("soo", "123456")
 console.log(login("soo","password"))
+
+// Try to register
+register("mia", "123456", "mia", "mia@utem.edu.my")
+console.log(login("mia", "123456"))
